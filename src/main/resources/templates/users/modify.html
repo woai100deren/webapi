@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册或修改</title>
+</head>
+<body>
+<div th:replace="~{fragments/header::header}"></div>
+<h3 th:text="${userModel.title}"></h3>
+<form action="/users" th:action="@{/users}" method="POST" th:object="${userModel.user}">
+    <input type="hidden" name="id" th:value="*{id}">
+    用户名：<br>
+    <input type="text" name="name" th:value="*{username}">
+    <br>
+    密码：<br>
+    <input type="text" name="email" th:value="*{password}">
+    <input type="submit" value="提交" >
+</form>
+<!--<div th:replace="~{fragments/footer::footer}"></div>-->
+</body>
+</html>

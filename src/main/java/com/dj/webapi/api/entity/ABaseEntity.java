@@ -2,7 +2,7 @@ package com.dj.webapi.api.entity;
 
 import java.io.Serializable;
 
-public class BaseEntity<T> implements Serializable {
+public class ABaseEntity<T> implements Serializable {
     String resultCode;
     String resultMsg;
     T t;

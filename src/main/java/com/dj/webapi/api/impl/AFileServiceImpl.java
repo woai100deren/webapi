@@ -1,7 +1,7 @@
 package com.dj.webapi.api.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.dj.webapi.api.service.FileService;
+import com.dj.webapi.api.service.AFileService;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 @Service
-public class FileServiceImpl implements FileService {
+public class AFileServiceImpl implements AFileService {
     @Autowired
     private HttpServletRequest request;
 

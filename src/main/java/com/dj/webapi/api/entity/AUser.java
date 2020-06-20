@@ -1,6 +1,6 @@
 package com.dj.webapi.api.entity;
 
-public class User {
+public class AUser {
     private int id;
     private String username;
     private String password;
