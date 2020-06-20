@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>新建新闻</title>
+</head>
+<body>
+<div th:replace="~{fragments/header::header}"></div>
+<h3 th:text="${newsModel.title}"></h3>
+<form th:action="@{/news/addNews}" method="POST" th:object="${newsModel.news}">
+    新闻图片地址：
+    <br>
+        <input type="text" name="image" th:value="*{image}" style="width:600px;">
+    <br>
+    标题：
+    <br>
+        <input type="text" name="title" th:value="*{title}" style="width:600px;">
+    <br>
+    副标题：
+    <br>
+        <input type="text" name="subtitle" th:value="*{subtitle}" style="width:600px;">
+    <br>
+    内容：
+    <br>
+        <input type="text" name="content" th:value="*{content}" style="width:600px;">
+    <br>
+    作者：
+    <br>
+        <input type="text" name="author" th:value="*{author}" style="width:100px;">
+    <br>
+
+    <input type="submit" value="提交" >
+</form>
+<!--<div th:replace="~{fragments/footer::footer}"></div>-->
+</body>
+</html>

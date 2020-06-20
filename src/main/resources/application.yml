@@ -1,0 +1,4 @@
+#设置模板缓存为false，这样修改html页面后刷新浏览器能马上看到结果
+spring:
+  thymeleaf:
+    cache: false
