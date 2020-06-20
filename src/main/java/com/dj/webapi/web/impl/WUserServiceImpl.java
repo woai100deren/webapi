@@ -1,6 +1,5 @@
 package com.dj.webapi.web.impl;
 
-import com.dj.webapi.api.entity.AUser;
 import com.dj.webapi.web.entity.WUser;
 import com.dj.webapi.web.service.WUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,17 +43,29 @@ public class WUserServiceImpl implements WUserService {
     }
 
     @Override
-    public WUser modifyUser(WUser user) {
-        return null;
+    public void modifyUser(WUser user) {
+        jdbcTemplate.update("UPDATE USER SET username=?,password=? WHERE id=?", user.getUsername(),user.getPassword(),user.getId());
     }
 
     @Override
     public void deleteUser(long id) {
-
+        jdbcTemplate.update("delete from user where id=?",id);
     }
 
     @Override
     public WUser getUserById(long id) {
-        return null;
+        String sql = "select id,username,password from user where id="+id;
+        List<WUser> students = jdbcTemplate.query(sql, new RowMapper<WUser>() {
+            @Override
+            public WUser mapRow(ResultSet resultSet, int i) throws SQLException {
+                WUser student = new WUser();
+                student.setId(resultSet.getInt("id"));
+                student.setUsername(resultSet.getString("username"));
+                student.setPassword(resultSet.getString("password"));
+                return student;
+            }
+        });
+
+        return students.get(0);
     }
 }

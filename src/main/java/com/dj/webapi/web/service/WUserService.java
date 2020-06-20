@@ -18,9 +18,8 @@ public interface WUserService {
     /**
      * 修改用户信息
      * @param user 用户
-     * @return 用户信息
      */
-    WUser modifyUser(WUser user);
+    void modifyUser(WUser user);
     /**
      * 删除用户
      * @param id 用户编号
